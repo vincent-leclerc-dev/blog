@@ -8,7 +8,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative flex h-64 items-center justify-center">
+    <footer className="relative flex h-64 items-center justify-center text-white">
       <ul className="relative grid grid-cols-2 gap-4 sm:grid-cols-4">
         <li>
           <a href="/">
