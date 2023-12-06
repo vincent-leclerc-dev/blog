@@ -1,7 +1,13 @@
 {
   "name": "blog",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vincent-leclerc-dev/vld-components.git"
+  },
   "scripts": {
+    "check": "prettier . --check",
+    "format": "prettier --write .",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
@@ -14,16 +20,24 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
+    "@astrojs/tailwind": "^5.0.2",
+    "@fontsource/roboto": "^5.0.8",
+    "@fontsource/roboto-condensed": "^5.0.13",
+    "@jop-software/astro-cookieconsent": "^2.0.0",
     "astro": "^3.6.0",
+    "classnames": "^2.3.2",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^5.3.2"
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.3.2",
+    "vanilla-cookieconsent": "^2.9.2",
+    "vld-ui-components": "^1.0.2"
   },
   "devDependencies": {
     "@astrojs/react": "^3.0.6",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.3",
-    "@astrojs/tailwind": "^5.0.2",
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@tailwindcss/aspect-ratio": "^0.4.2",
@@ -34,7 +48,7 @@
     "astro-eslint-parser": "^0.16.0",
     "astro-imagetools": "^0.9.0",
     "astro-robots-txt": "^1.0.0",
-    "eslint": "^8.54.0",
+    "eslint": "^8.55.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^9.0.0",
@@ -49,8 +63,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
     "prettier": "^3.1.0",
+    "prettier-eslint": "^16.1.2",
     "prettier-plugin-astro": "^0.12.2",
-    "rimraf": "^5.0.5",
-    "tailwindcss": "^3.3.5"
+    "rimraf": "^5.0.5"
   }
 }
