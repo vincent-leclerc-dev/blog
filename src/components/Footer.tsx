@@ -24,7 +24,7 @@ const Footer = () => {
       <div className="relative left-[190px] top-[60px] flex h-[185px] w-[1060px] flex-col items-center justify-between">
         <div className="relative flex w-[1060px] flex-[0_0_auto] items-center justify-between">
           <CollaborateWithMe
-            text="vleclerc.dev@gmail.com"
+            text="contact@vincentleclerc.blog"
             subject="Proposition de collaboration"
           />
           <ul className={socialNetworksClasses}>

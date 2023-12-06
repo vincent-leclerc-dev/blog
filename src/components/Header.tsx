@@ -64,9 +64,9 @@ const Header = () => {
         <div className="absolute left-[190px] top-[30px] flex w-[1060px] items-center justify-between">
           <a href="/">
             <img
-              className="relative h-[48px] w-[48px]"
-              alt="Logo v holo"
-              src="/logo-v-48-48-holo-black-1.svg"
+              className="relative h-[48px] w-[48px] text-white"
+              alt="√"
+              src="/logo-48-48-holo-black.svg"
             />
           </a>
           <div className="relative inline-flex flex-[0_0_auto] items-center gap-[30px]">
