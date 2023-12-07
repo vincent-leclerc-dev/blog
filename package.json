@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/vincent-leclerc-dev/vld-components.git"
@@ -13,6 +13,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "commit": "cz",
     "clean": "rimraf dist",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.astro .",
     "build-types": "tsc --noEmit --pretty",
@@ -48,6 +49,7 @@
     "astro-eslint-parser": "^0.16.0",
     "astro-imagetools": "^0.9.0",
     "astro-robots-txt": "^1.0.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.55.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
@@ -60,11 +62,18 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "eslint-plugin-unused-imports": "^3.0.0",
+    "grunt": "^1.6.1",
+    "grunt-bump": "^0.8.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
     "prettier": "^3.1.0",
     "prettier-eslint": "^16.1.2",
     "prettier-plugin-astro": "^0.12.2",
     "rimraf": "^5.0.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
