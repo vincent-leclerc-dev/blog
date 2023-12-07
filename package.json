@@ -14,6 +14,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "commit": "git-cz",
+    "release": "standard-version",
     "clean": "rimraf dist",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.astro .",
     "build-types": "tsc --noEmit --pretty",
@@ -70,7 +71,8 @@
     "prettier": "^3.1.0",
     "prettier-eslint": "^16.1.2",
     "prettier-plugin-astro": "^0.12.2",
-    "rimraf": "^5.0.5"
+    "rimraf": "^5.0.5",
+    "standard-version": "^9.5.0"
   },
   "config": {
     "commitizen": {
