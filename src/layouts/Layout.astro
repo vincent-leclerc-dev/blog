@@ -1,7 +1,6 @@
 ---
 import "@fontsource/roboto";
 import "@fontsource/roboto-condensed";
-import "../styles/global.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 interface Props {
@@ -34,44 +33,40 @@ const { title } = Astro.props;
     <title>{title}</title>
     <meta name="p:domain_verify" content="0287efe51f635f5204b841c8b6ca45d5" />
   </head>
-  <body>
-    <div class="flex flex-col justify-center w-full h-full">
-      <div class="flex flex-col justify-center items-center h-full">
-        <Header />
-        <slot />
-        <Footer />
-      </div>
+  <body class="h-full w-full [font-family:'Roboto',Helvetica]">
+    <div class="h-full w-full flex flex-col z-20">
+      <Header />
+      <slot />
+      <Footer />
     </div>
     <script src="//code.tidio.co/cxlqzkfrmpvrnytphek5nlbovkmqbhpa.js" async
     ></script>
   </body>
 </html>
 <style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer components {
+    .all-\[unset\] {
+      all: unset;
+    }
+  }
+
   :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
+    --black: rgba(0, 0, 0, 1);
+    /*--blue: rgba(60, 132, 251, 1);*/
+    --darkgray: rgba(34, 34, 34, 1);
+    --softgray: rgba(216, 221, 227, 1);
+    --variable-collection-white: rgba(255, 255, 255, 1);
+    --white: rgba(255, 255, 255, 1);
   }
+
   html {
-    font-family: system-ui, sans-serif;
-    background: #13151a;
-    background-size: 224px;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
+    background-color: #111111;
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
   }
 </style>

@@ -1,47 +1,22 @@
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 interface Props {
-  className?: string;
   text: string;
 }
 
-export const Copyright = ({ className, text }: Props): JSX.Element => {
-  const wrapperClasses = classNames([
-    'flex',
-    'w-[167px]',
-    'items-center',
-    'justify-end',
-    'gap-[10px]',
-    'relative',
-  ]);
-
-  const containerClasses = classNames([
-    'w-fit',
-    'mt-[-1.00px]',
-    'ml-[-25.00px]',
-    'text-[#ffffff]',
-    'text-[18px]',
-    'text-center',
-    'tracking-[1.08px]',
-    'leading-[normal]',
-    'whitespace-nowrap',
-    'relative',
-    'font-thin',
-    "[font-family:'Roboto',Helvetica]",
-    className,
-  ]);
-
-  return (
-    <div className={wrapperClasses}>
-      <div className={containerClasses}>
-        {text} © {new Date().getFullYear()}
-      </div>
-    </div>
-  );
-};
+export const Copyright = ({ text }: Props): JSX.Element => (
+  <div
+    className="flex w-full flex-wrap items-center justify-center gap-[4px] 
+    p-2 text-sm text-white md:w-1/2 md:justify-start"
+  >
+    <a href="/" className="underline hover:text-blue-500">
+      {text}
+    </a>{' '}
+    <span>©</span>
+    <span>{new Date().getFullYear()}</span>
+  </div>
+);
 
 Copyright.propTypes = {
-  className: PropTypes.string,
   text: PropTypes.string,
 };
