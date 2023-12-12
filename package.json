@@ -22,11 +22,11 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
-    "@astrojs/tailwind": "^5.0.2",
+    "@astrojs/tailwind": "^5.0.3",
     "@fontsource/roboto": "^5.0.8",
     "@fontsource/roboto-condensed": "^5.0.13",
     "@jop-software/astro-cookieconsent": "^2.0.0",
-    "astro": "^3.6.0",
+    "astro": "^4.0.3",
     "classnames": "^2.3.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -38,8 +38,8 @@
     "vld-ui-components": "^1.0.2"
   },
   "devDependencies": {
-    "@astrojs/react": "^3.0.6",
-    "@astrojs/rss": "^3.0.0",
+    "@astrojs/react": "^3.0.7",
+    "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^3.0.3",
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",

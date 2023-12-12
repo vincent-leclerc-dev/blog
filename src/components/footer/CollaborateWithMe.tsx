@@ -50,7 +50,7 @@ export const CollaborateWithMe = ({ text, subject }: Props): JSX.Element => {
               alt="IconLetter"
               src="/icon.svg"
             />{' '}
-            <span className="hidden sm:block">DISCUTTONS</span>
+            <span>DISCUTTONS</span>
             <span className="hidden xl:block">DE VOTRE PROJET</span>
           </a>
         </div>

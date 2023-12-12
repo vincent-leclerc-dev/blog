@@ -1,9 +1,10 @@
 export const Logo = (): JSX.Element => (
-  <a href="/">
-    <img
-      className="absolute left-0 top-0 z-40 m-8 flex h-[44px] w-[44px] items-center text-white hover:animate-spin hover:duration-1000 hover:ease-in-out"
-      alt="√"
-      src="/logo-48-48-holo-black.svg"
-    />
+  <a
+    href="/"
+    className="absolute left-0 top-0 z-30 m-[18px] flex h-[48px] w-[48px] flex-col"
+  >
+    <div className="group absolute left-0 top-0 z-40 h-[48px] w-[48px] bg-[url('logo-48-48-holo-black.svg')]">
+      {' '}
+    </div>
   </a>
 );

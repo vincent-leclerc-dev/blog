@@ -1,13 +1,86 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../layouts/BaseLayout.astro";
+
+const skills = ["HTML", "CSS", "PHP", "JS", "TS", "React", "Angular", "Vue"];
+
+import BlogPost from "../components/BlogPost.astro";
+const allPosts = await Astro.glob("../pages/posts/*.md");
+
+const identity = {
+  firstName: "Vincent",
+  country: "France",
+  occupation: "Full Stack Developer",
+  hobbies: ["Escalade", "Batterie", "Astronomie", "Randonnée", "VTT"],
+};
+
+const projects = [
+  {
+    name: "Portfolio",
+    description:
+      "Vitrine de mes projets, ainsi que quelques informations sur moi.",
+  },
+  {
+    name: "Presto Picto",
+    description: "Application de bureau pour les Orthophonistes",
+  },
+];
 ---
 
-<Layout title="Vincent Leclerc">
+<Layout title="Vincent Leclerc - Accueil">
   <main class="relative flex flex-col w-full h-full bg-softgrey z-20">
     <div
       class="relative container mx-auto flex flex-col bg-softgrey text-black font-semibold text-4xl text-center p-4"
     >
       <h1>WIP...</h1>
+      <div id="posts" class="hidden">
+        <ul>
+          {
+            allPosts.map((post) => (
+              <BlogPost url={post.url} title={post.frontmatter.title} />
+            ))
+          }
+        </ul>
+      </div>
+      <div id="skills" class="hidden">
+        <h2>Skills</h2>
+        <ul>
+          {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+      </div>
+      <div
+        id="about"
+        class="relative container mx-auto flex flex-col bg-softgrey text-black font-semibold text-4xl text-center p-4"
+      >
+        <h2>À propos</h2>
+        <ul>
+          <li>My name is {identity.firstName}.</li>
+          <li>
+            I live in {identity.country} and I work as a {identity.occupation}.
+          </li>
+          {
+            identity.hobbies.length >= 2 && (
+              <li>
+                Two of my hobbies are: {identity.hobbies[0]} and{" "}
+                {identity.hobbies[1]}
+              </li>
+            )
+          }
+        </ul>
+      </div>
+      <div id="projects">
+        <h2>Mes derniers projets</h2>
+        <ul>
+          {projects.map((project) => <li>{project.name}</li>)}
+        </ul>
+      </div>
+      <div class="w-full flex items-center justify-end">
+        <a
+          class="flex items-center justify-center rounded-full bg-blue-500 text-white h-[44px] w-[44px] m-4"
+          href="#"
+        >
+          <img class="h-[30px] w-[30px]" alt="top" src="/rocket.svg" />
+        </a>
+      </div>
     </div>
   </main>
 </Layout>
@@ -53,7 +126,19 @@ import Layout from "../layouts/Layout.astro";
     if (!context) {
       return;
     }
-    context.fillStyle = "black";
+
+    const gradient = context.createLinearGradient(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+    gradient.addColorStop(0.2, "#000000");
+    gradient.addColorStop(0.6, "#2a1683");
+    gradient.addColorStop(0.68, "#5c0099");
+    gradient.addColorStop(0.95, "#000000");
+    context.fillStyle = gradient;
     context.fillRect(0, 0, canvas.width, canvas.height);
   };
 

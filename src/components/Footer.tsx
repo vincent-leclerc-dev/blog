@@ -31,7 +31,7 @@ const Footer = () => {
           <li>
             <div className="group relative flex">
               <a href={`/rss`}>
-                <img className="h-[44px] w-[44px]" alt="rss" src="/rss.svg" />
+                <img className="h-[44px] w-[44px]" alt="rss" src="/rss.svg" />{' '}
               </a>
               <Tooltip text="rss" />
             </div>

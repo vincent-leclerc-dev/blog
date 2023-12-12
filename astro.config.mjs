@@ -6,12 +6,15 @@ import { defineConfig } from "astro/config";
 
 import tailwind from "@astrojs/tailwind";
 
+const isProd = import.meta.env.PROD;
+const isDev = import.meta.env.DEV;
+
 // https://astro.build/config
 export default defineConfig({
   // base: '.', // Set a path prefix.
   site: "https://example.com/",
   // Use to generate your sitemap and canonical URLs in your final build.
-  trailingSlash: "always",
+  trailingSlash: isDev ? "never" : "always",
   // Use to always append '/' at end of url
   markdown: {
     shikiConfig: {

@@ -22,7 +22,7 @@ export const SocialNetwork = ({ config }: Props): JSX.Element => (
         className="h-[44px] w-[44px]"
         alt={config.platform}
         src={`/${config.platform}.svg`}
-      />
+      />{' '}
     </a>
     <Tooltip text={config.platform} />
   </div>
