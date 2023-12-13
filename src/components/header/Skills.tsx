@@ -4,7 +4,7 @@ export const Skills = (): JSX.Element => (
       href="/#frontend"
       className="flex h-[88px] w-[88px] flex-col items-center justify-between p-2"
     >
-      <img className="h-[45px] w-[45px]" alt="frontend" src="/frontend.svg" />
+      <img className="h-[45px] w-[45px]" alt="Palette" src="/frontend.svg" />
       <div className="w-fit whitespace-nowrap text-center text-[18px] font-semibold leading-[normal] tracking-[1.08px] text-blue-500">
         Frontend
       </div>
@@ -15,7 +15,7 @@ export const Skills = (): JSX.Element => (
     >
       <img
         className="mt-[5px] h-[35.43px] w-[45px]"
-        alt="backend"
+        alt="Code"
         src="/backend.svg"
       />
       <div className="w-fit whitespace-nowrap text-center text-[18px] font-semibold leading-[normal] tracking-[1.08px] text-blue-500">
@@ -26,7 +26,7 @@ export const Skills = (): JSX.Element => (
       href="/#ops"
       className="flex h-[88px] w-[88px] flex-col items-center justify-between p-2"
     >
-      <img className="h-[45px] w-[45px]" alt="ops" src="/ops.svg" />
+      <img className="h-[45px] w-[45px]" alt="Terminal" src="/ops.svg" />
       <div className="w-fit whitespace-nowrap text-center text-[18px] font-bold leading-[normal] tracking-[1.08px] text-blue-500">
         Ops
       </div>
