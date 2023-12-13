@@ -87,7 +87,9 @@ const projects = [
 
 <script is:inline>
   const canvas = document.getElementById("canvas");
-  const context = canvas.getContext("2d");
+  const context = canvas.getContext("2d", { alpha: false });
+  context.mozImageSmoothingEnabled = false;
+  context.imageSmoothingEnabled = false;
 
   let w;
   let h;
