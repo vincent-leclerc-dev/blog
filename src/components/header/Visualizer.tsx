@@ -16,7 +16,7 @@ export const Visualizer = (): JSX.Element => (
         <img
           className="h-[133px] w-[133px] -rotate-90 rounded-[133px] object-cover sm:h-[133px] sm:w-[133px] lg:h-[333px] lg:w-[333px]"
           alt="Luna"
-          src="/image.png"
+          src="/luna.webp"
         />
       </div>
     </div>

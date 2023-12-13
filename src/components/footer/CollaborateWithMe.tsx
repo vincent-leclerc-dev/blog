@@ -40,7 +40,7 @@ export const CollaborateWithMe = ({ text, subject }: Props): JSX.Element => {
         </div>
       </div>
       <div className={`flex items-center justify-center lg:w-1/2`}>
-        <div className="mb-[44px] flex w-fit flex-row rounded-[44px] bg-blue-500 p-2 sm:px-4">
+        <div className="mb-[44px] flex w-fit flex-row rounded-[44px] bg-gradient-to-r from-blue-900 via-purple-700 to-pink-700 p-2 sm:px-4">
           <a
             href={`mailto:${text}?subject=${subject}`}
             className="flex items-center justify-center gap-[10px] text-center text-[16px] font-semibold text-[#ffffff]"
