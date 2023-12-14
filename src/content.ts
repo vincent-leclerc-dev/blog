@@ -1,7 +1,7 @@
 export const skills = [
   { label: 'HTML', category: 'frontend', note: 5 },
   { label: 'CSS', category: 'frontend', note: 5 },
-  { label: 'PHP', category: 'frontend', note: 5 },
+  { label: 'PHP', category: 'backend', note: 5 },
   { label: 'JS', category: 'other', note: 5 },
   { label: 'TS', category: 'other', note: 4 },
   { label: 'Express', category: 'backend', note: 4 },
