@@ -23,7 +23,6 @@ export const Tooltip = ({ className, text }: Props): JSX.Element => {
     'opacity-0',
     'transition-opacity',
     'group-hover:opacity-100',
-    'z-10',
     'transition-opacity',
     'duration-1000',
     'ease-in-out',

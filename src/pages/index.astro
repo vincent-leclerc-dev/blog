@@ -1,37 +1,23 @@
 ---
-import Layout from "../layouts/BaseLayout.astro";
-
-const skills = ["HTML", "CSS", "PHP", "JS", "TS", "React", "Angular", "Vue"];
+import { About } from "@/components/About";
+import { Projects } from "@/components/Projects";
+import { Tags } from "@/components/Tags";
 
 import BlogPost from "../components/BlogPost.astro";
+import { identity, projects, skills } from "../content";
+import Layout from "../layouts/BaseLayout.astro";
+
 const allPosts = await Astro.glob("../pages/posts/*.md");
-
-const identity = {
-  firstName: "Vincent",
-  country: "France",
-  occupation: "Full Stack Developer",
-  hobbies: ["Escalade", "Batterie", "Astronomie", "Randonnée", "VTT"],
-};
-
-const projects = [
-  {
-    name: "Portfolio",
-    description:
-      "Vitrine de mes projets, ainsi que quelques informations sur moi.",
-  },
-  {
-    name: "Presto Picto",
-    description: "Application de bureau pour les Orthophonistes",
-  },
-];
 ---
 
 <Layout title="Vincent Leclerc - Accueil">
-  <main class="relative flex flex-col w-full h-full bg-softgrey z-20">
-    <div
-      class="relative container mx-auto flex flex-col bg-softgrey text-black font-semibold text-4xl text-center p-4"
-    >
-      <h1>WIP...</h1>
+  <div class="flex w-full flex-col bg-black">
+    <div class="container m-auto bg-[#222222]">
+      <h1
+        class="text-center text-lg font-semibold text-white m-4 p-4 bg-yellow-600"
+      >
+        WIP...
+      </h1>
       <div id="posts" class="hidden">
         <ul>
           {
@@ -41,51 +27,51 @@ const projects = [
           }
         </ul>
       </div>
-      <div id="skills" class="hidden">
-        <h2>Skills</h2>
-        <ul>
-          {skills.map((skill) => <li>{skill}</li>)}
-        </ul>
+      <div class="flex justify-evenly">
+        <About data={identity} />
+        <Tags data={skills} />
       </div>
-      <div
-        id="about"
-        class="relative container mx-auto flex flex-col bg-softgrey text-black font-semibold text-4xl text-center p-4"
-      >
-        <h2>À propos</h2>
-        <ul>
-          <li>My name is {identity.firstName}.</li>
-          <li>
-            I live in {identity.country} and I work as a {identity.occupation}.
-          </li>
-          {
-            identity.hobbies.length >= 2 && (
-              <li>
-                Two of my hobbies are: {identity.hobbies[0]} and{" "}
-                {identity.hobbies[1]}
-              </li>
-            )
-          }
-        </ul>
+      <div class="flex justify-evenly">
+        <Projects data={projects} />
       </div>
-      <div id="projects">
-        <h2>Mes derniers projets</h2>
-        <ul>
-          {projects.map((project) => <li>{project.name}</li>)}
-        </ul>
-      </div>
-      <div class="w-full flex items-center justify-end">
+      <div class="flex justify-end">
         <a
-          class="flex items-center justify-center rounded-full bg-blue-500 text-white h-[44px] w-[44px] m-4"
+          class="m-4 flex h-[44px] w-[44px] items-center justify-center rounded-full bg-blue-500 text-white"
           href="#"
         >
           <img class="h-[30px] w-[30px]" alt="top" src="/rocket.svg" />
         </a>
       </div>
     </div>
-  </main>
+  </div>
 </Layout>
 
 <script is:inline>
+  navigator.sayswho = (function () {
+    var ua = navigator.userAgent;
+    console.log(ua);
+    var tem;
+    var M =
+      ua.match(
+        /(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i
+      ) || [];
+    if (/trident/i.test(M[1])) {
+      tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
+      return "IE " + (tem[1] || "");
+    }
+    if (M[1] === "Chrome") {
+      tem = ua.match(/\b(OPR|Edge)\/(\d+)/);
+      if (tem != null) return tem.slice(1).join(" ").replace("OPR", "Opera");
+    }
+    M = M[2] ? [M[1], M[2]] : [navigator.appName, navigator.appVersion, "-?"];
+    if ((tem = ua.match(/version\/(\d+)/i)) != null) M.splice(1, 1, tem[1]);
+    return M.join(" ");
+  })();
+
+  window.addEventListener("load", (event) => {
+    document.getElementById("browser").innerHTML = navigator.sayswho;
+  });
+
   const canvas = document.getElementById("canvas");
   const context = canvas.getContext("2d", { alpha: false });
   context.mozImageSmoothingEnabled = false;

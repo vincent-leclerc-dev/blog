@@ -1,22 +1,27 @@
 import { Logo } from './header/Logo';
 import { Navbar } from './header/Navbar';
-import { Skills } from './header/Skills';
+import { Panel } from './header/Panel';
 import { Visualizer } from './header/Visualizer';
 
 const Header = () => (
-  <header className="relative w-full bg-black">
-    <div id="starfield" className="absolute left-0 top-0 z-10">
-      <canvas className="h-full w-full" id="canvas"></canvas>
+  <header className="w-full">
+    <div id="starfield" className="absolute left-0 top-0 -z-10">
+      <canvas
+        className="w-full bg-gradient-to-r from-red-500"
+        id="canvas"
+      ></canvas>
     </div>
-    <div className="container relative mx-auto flex flex-col items-center justify-center bg-black">
-      <div className="relative z-10 flex h-full w-full flex-row items-center justify-between">
+    <div className="container m-auto">
+      <div className="flex items-center justify-between">
         <Logo />
         <Navbar />
+      </div>
+      <div className="flex items-center justify-between">
         <Visualizer />
       </div>
-      <div className="relative z-10 flex h-full w-full flex-row items-center justify-center">
-        <Skills />
-      </div>
+    </div>
+    <div className="flex w-full flex-row items-center justify-center">
+      <Panel />
     </div>
   </header>
 );

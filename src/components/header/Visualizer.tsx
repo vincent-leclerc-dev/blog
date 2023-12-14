@@ -1,5 +1,5 @@
 export const Visualizer = (): JSX.Element => (
-  <div className="z-10 mx-8 mb-[60px] mt-[120px] flex w-full flex-col items-center justify-center gap-[30px] sm:flex-row">
+  <div className="mx-8 mb-[60px] mt-[120px] flex w-full flex-col items-center justify-center gap-[30px] sm:flex-row">
     <div className="flex w-full flex-col items-center gap-[30px] lg:w-1/2">
       <div className="h-full w-full text-center text-[32px] font-semibold leading-[normal] tracking-[2px] text-white lg:text-[48px]">
         VINCENT LECLERC

@@ -10,18 +10,18 @@ interface Props {
 export const CollaborateWithMe = ({ text, subject }: Props): JSX.Element => {
   const wrapperClasses = classNames([
     'w-full',
-    'md:w-2/3',
+    'md:w-1/2',
     'flex',
     'flex-col',
     'items-center',
     'justify-center',
+    'lg:w-2/3',
     'lg:flex-row',
-    'lg:justify-between',
   ]);
 
   return (
     <div className={wrapperClasses}>
-      <div className="hidden w-full items-center justify-center pb-[44px] sm:block lg:w-1/2">
+      <div className="mb-16 hidden w-full items-center justify-center sm:block lg:w-1/2">
         <div className="flex flex-col items-center justify-center whitespace-nowrap md:flex-row">
           <span className="text-center text-[25px] font-semibold text-white ">
             VOUS SOUHAITEZ
@@ -39,8 +39,8 @@ export const CollaborateWithMe = ({ text, subject }: Props): JSX.Element => {
           </span>
         </div>
       </div>
-      <div className={`flex items-center justify-center lg:w-1/2`}>
-        <div className="mb-[44px] flex w-fit flex-row rounded-[44px] bg-gradient-to-r from-blue-900 via-purple-700 to-pink-700 p-2 sm:px-4">
+      <div className={`mb-16 flex items-center justify-center lg:w-1/2`}>
+        <div className="flex w-fit flex-row rounded-[44px] bg-gradient-to-r from-[#2a1683] via-[#5c0099] to-[#ff0095] p-2 sm:px-4">
           <a
             href={`mailto:${text}?subject=${subject}`}
             className="flex items-center justify-center gap-[10px] text-center text-[16px] font-semibold text-[#ffffff]"

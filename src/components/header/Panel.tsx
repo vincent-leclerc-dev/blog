@@ -1,5 +1,5 @@
-export const Skills = (): JSX.Element => (
-  <div className="z-40 flex w-full flex-wrap items-center justify-evenly bg-gray-100/10 px-[30px] py-[10px] sm:rounded-t-lg md:w-auto md:gap-[120px] md:px-[60px] md:py-[30px]">
+export const Panel = (): JSX.Element => (
+  <div className="flex w-full flex-wrap items-center justify-evenly bg-gray-100/10 px-[30px] py-[10px] sm:rounded-t-lg md:w-auto md:gap-[120px] md:px-[60px] md:py-[30px]">
     <a
       href="/#frontend"
       className="flex h-[88px] w-[88px] flex-col items-center justify-between p-2"
