@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.11...v0.0.12) (2023-12-14)
+
+
+### Features
+
+* **content:** start to add some content ([02b46cc](https://github.com/vincent-leclerc-dev/blog/commit/02b46ccae4060f90fcdb27b61c57cec522988a54))
+
 ### [0.0.11](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.10...v0.0.11) (2023-12-13)
 
 ### [0.0.10](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.9...v0.0.10) (2023-12-13)
