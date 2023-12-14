@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.12...v0.0.13) (2023-12-14)
+
+
+### Bug Fixes
+
+* **content:** fix skill php category ([d70a215](https://github.com/vincent-leclerc-dev/blog/commit/d70a2153e81932b1e7cf856c8bf1391f568aec86))
+
 ### [0.0.12](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.11...v0.0.12) (2023-12-14)
 
 
