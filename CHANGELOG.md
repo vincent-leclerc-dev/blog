@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.13...v0.0.14) (2023-12-15)
+
+
+### Features
+
+* **contact:** form contact + refacto + design ([9301508](https://github.com/vincent-leclerc-dev/blog/commit/9301508896521e12799b3035b3ba8ecfb5bddc0d))
+
 ### [0.0.13](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.12...v0.0.13) (2023-12-14)
 
 
