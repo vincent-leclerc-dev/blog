@@ -4,7 +4,7 @@ import { Tooltip } from '../Tooltip';
 
 export type SocialNetworkItem = {
   platform: string;
-  username: string;
+  url: string;
 };
 
 interface Props {
@@ -14,10 +14,7 @@ interface Props {
 
 export const SocialNetwork = ({ config }: Props): JSX.Element => (
   <div className="group relative flex">
-    <a
-      href={`https://www.${config.platform}.com/${config.username}`}
-      target="_blank"
-    >
+    <a href={config.url} target="_blank">
       <img
         className="h-[44px] w-[44px]"
         alt={config.platform}
@@ -31,7 +28,7 @@ export const SocialNetwork = ({ config }: Props): JSX.Element => (
 SocialNetwork.propTypes = {
   config: PropTypes.shape({
     platform: PropTypes.string.isRequired,
-    username: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
   }),
   className: PropTypes.string,
 };

@@ -1,3 +1,5 @@
+import { socialNetworks } from '@/content';
+
 import { SITE_TITLE } from '../consts';
 import { CollaborateWithMe } from './footer/CollaborateWithMe';
 import { Copyright } from './footer/Copyright';
@@ -7,14 +9,9 @@ import { Version } from './footer/Version';
 import { Tooltip } from './Tooltip';
 
 const Footer = () => {
-  const socialNetworks = [
-    { platform: 'github', username: 'vincent-leclerc-dev' },
-    { platform: 'linkedin', username: 'in/leclercvincent' },
-  ];
-
   return (
     <footer className="w-full bg-black">
-      <div className="container mx-auto flex flex-col items-center bg-[#111111] pt-16 md:flex-row">
+      <div className="container mx-auto flex flex-col items-center rounded-b-3xl bg-[#111111] pt-16 md:flex-row">
         <CollaborateWithMe
           text="contact@vincentleclerc.blog"
           subject="Proposition de collaboration"
@@ -23,13 +20,13 @@ const Footer = () => {
           className="mb-16 flex w-full flex-wrap items-center justify-center
     gap-[44px] md:w-1/2 lg:w-1/3"
         >
-          {socialNetworks.map(({ platform, username }: SocialNetworkItem) => (
+          {socialNetworks.map(({ platform, url }: SocialNetworkItem) => (
             <li key={platform}>
-              <SocialNetwork config={{ platform, username }} />
+              <SocialNetwork config={{ platform, url }} />
             </li>
           ))}
           <li>
-            <div className="group relative flex">
+            <div className="group relative">
               <a href={`/rss`}>
                 <img className="h-[44px] w-[44px]" alt="rss" src="/rss.svg" />{' '}
               </a>

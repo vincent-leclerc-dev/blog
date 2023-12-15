@@ -39,6 +39,7 @@ export const Tags = ({ data }: TagsProps = { data: [] }): JSX.Element => (
     <ul className="flex flex-wrap bg-gray-950">
       {data.map((item) => (
         <li
+          key={item.label}
           className={twMerge(
             'flex flex-wrap whitespace-nowrap m-4 w-fit rounded-2xl text-white bg-slate-400 py-2 px-4 text-xl',
             getCategoryAsColor(item.category),

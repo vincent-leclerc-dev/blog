@@ -19,7 +19,10 @@ export const Projects = ({ data }: ProjectsProps): JSX.Element => (
     </h2>
     <ul className="flex flex-wrap bg-gray-950">
       {data.map((project) => (
-        <li className="m-4 flex w-full bg-slate-400 px-4 py-2 text-xl text-white">
+        <li
+          key={project.name}
+          className="m-4 flex w-full bg-slate-400 px-4 py-2 text-xl text-white"
+        >
           {project.name}
         </li>
       ))}

@@ -6,10 +6,7 @@ import { Visualizer } from './header/Visualizer';
 const Header = () => (
   <header className="w-full">
     <div id="starfield" className="absolute left-0 top-0 -z-10">
-      <canvas
-        className="w-full bg-gradient-to-r from-red-500"
-        id="canvas"
-      ></canvas>
+      <canvas className="w-full" id="canvas"></canvas>
     </div>
     <div className="container m-auto">
       <div className="flex items-center justify-between">
@@ -20,8 +17,10 @@ const Header = () => (
         <Visualizer />
       </div>
     </div>
-    <div className="flex w-full flex-row items-center justify-center">
-      <Panel />
+    <div className="w-full bg-gradient-to-t from-black">
+      <div className="flex w-full items-end justify-center">
+        <Panel />
+      </div>
     </div>
   </header>
 );

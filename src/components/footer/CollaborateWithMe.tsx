@@ -48,7 +48,7 @@ export const CollaborateWithMe = ({ text, subject }: Props): JSX.Element => {
             <img
               className="h-[30px] w-[30px] md:block"
               alt="IconLetter"
-              src="/icon.svg"
+              src="/letter.svg"
             />{' '}
             <span>DISCUTTONS</span>
             <span className="hidden xl:block">DE VOTRE PROJET</span>

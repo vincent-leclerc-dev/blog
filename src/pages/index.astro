@@ -1,5 +1,6 @@
 ---
 import { About } from "@/components/About";
+import { ContactForm } from "@/components/ContactForm";
 import { Projects } from "@/components/Projects";
 import { Tags } from "@/components/Tags";
 
@@ -12,9 +13,9 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
 
 <Layout title="Vincent Leclerc - Accueil">
   <div class="flex w-full flex-col bg-black">
-    <div class="container m-auto bg-[#222222]">
+    <div class="container m-auto rounded-t-3xl bg-[#222222]">
       <h1
-        class="text-center text-lg font-semibold text-white m-4 p-4 bg-yellow-600"
+        class="m-4 bg-yellow-600 p-4 text-center text-lg font-semibold text-white"
       >
         WIP...
       </h1>
@@ -34,9 +35,12 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
       <div class="flex justify-evenly">
         <Projects data={projects} />
       </div>
+      <div class="flex justify-evenly">
+        <ContactForm client:only />
+      </div>
       <div class="flex justify-end">
         <a
-          class="m-4 flex h-[44px] w-[44px] items-center justify-center rounded-full bg-blue-500 text-white"
+          class="mb-[44px] mr-[44px] flex h-[44px] w-[44px] items-center justify-center rounded-full bg-blue-500 text-white"
           href="#"
         >
           <img class="h-[30px] w-[30px]" alt="top" src="/rocket.svg" />
@@ -46,7 +50,31 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
   </div>
 </Layout>
 
-<script is:inline>
+<script>
+  /*
+  import {
+    inMemoryPersistence,
+    onAuthStateChanged,
+    signInAnonymously,
+  } from "firebase/auth";
+  import { auth } from "../firebase/client";
+
+  await signInAnonymously(auth);
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/auth.user
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+
+  // This will prevent the browser from storing session data
+  auth.setPersistence(inMemoryPersistence);
+  */
+
   navigator.sayswho = (function () {
     var ua = navigator.userAgent;
     console.log(ua);

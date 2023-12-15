@@ -15,7 +15,9 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="fr">
   <head>
-    <!-- Google tag (gtag.js) -->
+    <script
+      src="https://www.google.com/recaptcha/enterprise.js?render=6LcVuzIpAAAAAIrxu9ZC2IbnESbW_DOM3Oa4pDlO"
+    ></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT6DE0LXGD"
     ></script>
     <script is:inline>
@@ -33,19 +35,17 @@ const { title } = Astro.props;
       content="Vincent Leclerc, Développeur Web Full Stack"
     />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/logo-48-48-holo-black.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="p:domain_verify" content="0287efe51f635f5204b841c8b6ca45d5" />
   </head>
   <body class="h-full w-full [font-family:'Roboto',Helvetica]">
-    <div class="h-full w-full flex flex-col">
+    <div class="flex h-full w-full flex-col">
       <Header />
       <slot />
       <Footer />
     </div>
-    <script src="//code.tidio.co/cxlqzkfrmpvrnytphek5nlbovkmqbhpa.js" async
-    ></script>
   </body>
 </html>
 <style is:global>

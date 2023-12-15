@@ -38,3 +38,18 @@ export const projects = [
     description: 'Application de bureau pour les Orthophonistes',
   },
 ];
+
+export const socialNetworks = [
+  {
+    platform: 'github',
+    url: 'https://www.github.com/vincent-leclerc-dev',
+  },
+  {
+    platform: 'linkedin',
+    url: 'https://www.linkedin.com/in/leclercvincent',
+  },
+  {
+    platform: 'threads',
+    url: 'https://www.threads.net/@vleclercdev',
+  },
+];
