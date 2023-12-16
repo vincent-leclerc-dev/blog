@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.16](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.15...v0.0.16) (2023-12-16)
+
+
+### Bug Fixes
+
+* **build:** remove vercel ([2485019](https://github.com/vincent-leclerc-dev/blog/commit/2485019fe5fff97a57e765c7ca0715280cbb2b6a))
+
 ### [0.0.15](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.14...v0.0.15) (2023-12-16)
 
 
