@@ -1,7 +1,6 @@
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import vercel from '@astrojs/vercel/serverless';
 import { astroImageTools } from "astro-imagetools";
 import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
@@ -11,8 +10,7 @@ const isDev = import.meta.env.DEV;
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server',
-  adapter: vercel(),
+  output: 'hybrid',
   // base: '.', // Set a path prefix.
   site: "https://example.com/",
   // Use to generate your sitemap and canonical URLs in your final build.
