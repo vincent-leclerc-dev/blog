@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.18](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.17...v0.0.18) (2023-12-16)
+
+
+### Bug Fixes
+
+* **build:** remove ssr config tmp ([e1b9c0d](https://github.com/vincent-leclerc-dev/blog/commit/e1b9c0dfcd2da76a533e82417c101d23d092bb50))
+
 ### [0.0.17](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.16...v0.0.17) (2023-12-16)
 
 
