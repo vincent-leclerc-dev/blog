@@ -1,3 +1,4 @@
+import node from "@astrojs/node";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
@@ -11,6 +12,9 @@ const isDev = import.meta.env.DEV;
 // https://astro.build/config
 export default defineConfig({
   output: 'hybrid',
+  adapter: node({
+    mode: "standalone"
+  }),
   // base: '.', // Set a path prefix.
   site: "https://example.com/",
   // Use to generate your sitemap and canonical URLs in your final build.
