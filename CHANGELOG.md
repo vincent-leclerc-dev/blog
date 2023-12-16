@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.14...v0.0.15) (2023-12-16)
+
+
+### Features
+
+* **browser:** simple browser detection + lint ([206436f](https://github.com/vincent-leclerc-dev/blog/commit/206436f58cf2bbe78ac9cf0340ee3434d73051d4))
+
 ### [0.0.14](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.13...v0.0.14) (2023-12-15)
 
 
