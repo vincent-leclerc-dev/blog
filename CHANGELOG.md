@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.16...v0.0.17) (2023-12-16)
+
+
+### Bug Fixes
+
+* **build:** reset to node adapter ([de39eb1](https://github.com/vincent-leclerc-dev/blog/commit/de39eb177435aec9938d93f098e39bd4755e1663))
+
 ### [0.0.16](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.15...v0.0.16) (2023-12-16)
 
 
