@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.19](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.18...v0.0.19) (2023-12-17)
+
+
+### Bug Fixes
+
+* **build:** test deploy on vercel ([dfdbec9](https://github.com/vincent-leclerc-dev/blog/commit/dfdbec930e053637c8afef9c68169b88d74a204c))
+
 ### [0.0.18](https://github.com/vincent-leclerc-dev/blog/compare/v0.0.17...v0.0.18) (2023-12-16)
 
 
