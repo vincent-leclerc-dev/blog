@@ -1,9 +1,11 @@
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import vercel from '@astrojs/vercel/serverless';
 import { astroImageTools } from "astro-imagetools";
 import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
+
 const isProd = import.meta.env.PROD;
 const isDev = import.meta.env.DEV;
 
