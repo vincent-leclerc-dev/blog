@@ -9,7 +9,6 @@ const isDev = import.meta.env.DEV;
 
 // https://astro.build/config
 export default defineConfig({
-
   // base: '.', // Set a path prefix.
   site: "https://example.com/",
   // Use to generate your sitemap and canonical URLs in your final build.
@@ -25,4 +24,6 @@ export default defineConfig({
   integrations: [react(), sitemap(), robotsTxt(), astroImageTools, tailwind({
     applyBaseStyles: false
   })],
+  output: 'server',
+  adapter: vercel(),
 });
