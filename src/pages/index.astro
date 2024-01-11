@@ -1,6 +1,6 @@
 ---
 import { About } from "@/components/About";
-import { ContactForm } from "@/components/ContactForm";
+import ContactForm from "@/components/ContactForm";
 import { Projects } from "@/components/Projects";
 import { Tags } from "@/components/Tags";
 
@@ -48,7 +48,7 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
     </div>
   </div>
 </Layout>
-<script>
+<script is:inline>
   /*
   import {
     inMemoryPersistence,
@@ -115,15 +115,15 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
   })();
 
   window.addEventListener("load", () => {
-    document.getElementById("browser")!.innerHTML = simpleBrowserDetection;
+    document.getElementById("browser").innerHTML = simpleBrowserDetection;
   });
 
-  const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+  const canvas = document.getElementById("canvas");
   const context = canvas.getContext("2d", { alpha: false });
-  context!.imageSmoothingEnabled = false;
+  context.imageSmoothingEnabled = false;
 
-  let w: number;
-  let h: number;
+  let w;
+  let h;
 
   const setCanvasExtents = () => {
     w = document.body.clientWidth;
@@ -138,7 +138,7 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
     setCanvasExtents();
   };
 
-  const makeStars = (count: number) => {
+  const makeStars = (count) => {
     const out = [];
     for (let i = 0; i < count; i++) {
       const s = {
@@ -175,7 +175,7 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
     context.fillRect(0, 0, canvas.width, canvas.height);
   };
 
-  const putPixel = (x: number, y: number, brightness: number) => {
+  const putPixel = (x, y, brightness) => {
     if (!context) {
       return;
     }
@@ -186,7 +186,7 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
     context.fillRect(x, y, 1, 1);
   };
 
-  const moveStars = (distance: number) => {
+  const moveStars = (distance) => {
     const count = stars.length;
     for (var i = 0; i < count; i++) {
       const s = stars[i];
@@ -199,14 +199,14 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
     }
   };
 
-  let prevTime: number;
+  let prevTime;
 
-  const init = (time: number) => {
+  const init = (time) => {
     prevTime = time;
     requestAnimationFrame(tick);
   };
 
-  const tick = (time: number) => {
+  const tick = (time) => {
     let elapsed = time - prevTime;
     prevTime = time;
 

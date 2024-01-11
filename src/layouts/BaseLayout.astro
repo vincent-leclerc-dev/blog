@@ -75,6 +75,36 @@ const { title } = Astro.props;
     scroll-behavior: smooth;
   }
 
+  /* Change Autocomplete styles in Chrome*/
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 1px solid #222222;
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px #222222 inset;
+    box-shadow: 0 0 0px 1000px #222222 inset;
+    transition: background-color 5000s ease-in-out 0s;
+    color: white;
+  }
+
+  textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none; /*remove the resize handle on the bottom right*/
+  }
+
   /* width */
   ::-webkit-scrollbar {
     width: 10px;
@@ -95,5 +125,9 @@ const { title } = Astro.props;
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(0deg, #2a1683 0%, #5c0099 100%);
+  }
+
+  .grecaptcha-badge {
+    visibility: hidden;
   }
 </style>

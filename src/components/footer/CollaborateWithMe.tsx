@@ -1,13 +1,16 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-interface Props {
-  className?: string;
+type CollaborateWithMeProps = {
   subject: string;
   text: string;
-}
+  className?: string;
+};
 
-export const CollaborateWithMe = ({ text, subject }: Props): JSX.Element => {
+export const CollaborateWithMe = ({
+  text,
+  subject,
+}: CollaborateWithMeProps): JSX.Element => {
   const wrapperClasses = classNames([
     'w-full',
     'md:w-1/2',

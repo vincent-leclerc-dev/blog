@@ -1,87 +1,131 @@
 import { addDoc, collection } from 'firebase/firestore';
-import type { ReactElement } from 'react';
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import * as React from 'react';
+import { useEffect, useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 
 import { db } from '../firebase/client';
+import {
+  Button,
+  Captcha,
+  EmailField,
+  Info,
+  Success,
+  TextArea,
+  TextField,
+} from './form';
 
-export const ContactForm = (): ReactElement => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitSuccessful },
-  } = useForm();
+export default function ContactForm() {
+  const [captchaVisibility, setCaptchaVisibility] = useState(false);
+  const [isCaptchaSubmitted, setIsCaptchaSubmitted] = useState(false);
+  const [isCaptchaValidated, setIsCaptchaValidated] = useState(false);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-  const onSubmit = async (data: any) => {
-    await addDoc(collection(db, 'contacts'), {
-      name: data.name,
-      email: data.email,
-      message: data.message,
-    });
+  const methods = useForm();
+  const { trigger, getValues, reset } = methods;
+
+  const handleSubmit: React.FormEventHandler = async (
+    event: React.FormEvent,
+  ): Promise<void> => {
+    event.preventDefault();
+
+    const step1IsValid = await trigger(['name', 'email', 'message']);
+
+    setCaptchaVisibility(step1IsValid);
+
+    if (step1IsValid && isCaptchaValidated) {
+      await addDoc(collection(db, 'contacts'), {
+        name: getValues('name'),
+        email: getValues('email'),
+        message: getValues('message'),
+        createdAt: new Date(),
+      });
+
+      setIsFormSubmitted(true);
+      setCaptchaVisibility(false);
+      setIsCaptchaSubmitted(false);
+      setIsCaptchaValidated(false);
+
+      setTimeout(() => {
+        setIsFormSubmitted(false);
+      }, 3000);
+    }
+  };
+
+  const handleCaptchaCallback = (isValidCaptcha: boolean): void => {
+    setIsCaptchaSubmitted(true);
+    setIsCaptchaValidated(isValidCaptcha);
+    setCaptchaVisibility(isValidCaptcha);
   };
 
   useEffect(() => {
-    reset({ name: '', email: '', message: '' });
-  }, [isSubmitSuccessful]);
+    if (isFormSubmitted) {
+      setCaptchaVisibility(false);
+      reset();
+    }
+  }, [isFormSubmitted, reset]);
 
   return (
     <div
       id="contact"
-      className="m-4 flex w-1/2 flex-col items-center rounded-lg bg-[#333] p-2"
+      className="m-2 flex w-full flex-col items-center rounded-lg bg-[#333333] p-2"
     >
-      <h2 className="p-4 text-3xl font-semibold text-white">Contact</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex w-full flex-col">
-        <div className="flex w-full flex-col">
-          <input
-            type="text"
-            placeholder="Nom"
-            className="my-2 w-full bg-[#222222] p-4 text-white"
-            {...register('name', { required: true })}
-          />
-          {errors.name && (
-            <div className="w-full text-red-500">
-              Le champ nom est obligatoire. Veuillez le renseigner.
+      <h2 className="w-full rounded-t-lg p-2 text-center text-3xl font-semibold text-white">
+        Contact
+      </h2>
+      <div className="w-full p-2">
+        <FormProvider {...methods}>
+          <form onSubmit={handleSubmit} className="flex w-full flex-col">
+            <div className="flex w-full flex-col">
+              <TextField
+                name="name"
+                placeholder="Nom (optionnel)"
+                errorText="Le champ nom est obligatoire, veuillez le renseigner."
+                options={{ required: false }}
+              />
             </div>
-          )}
-        </div>
-        <div className="flex w-full flex-col">
-          <input
-            placeholder="Email"
-            className="my-2 w-full bg-[#222222] p-4 text-white"
-            {...register('email', {
-              required: true,
-              pattern:
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            })}
-          />
-          {errors.email && (
-            <div className="w-full text-red-500">
-              Veuillez respecter le format email.
+            <div className="flex w-full flex-col">
+              <EmailField
+                name="email"
+                placeholder="Email"
+                errorText="Veuillez respecter le format email."
+              />
             </div>
-          )}
-        </div>
-        <div className="flex w-full flex-col">
-          <textarea
-            placeholder="Message"
-            className="my-2 w-full bg-[#222222] p-4 text-white"
-            {...register('message', { required: true })}
-          ></textarea>
-          {errors.message && (
-            <div className="w-full text-red-500">
-              Le champ message est obligatoire. Veuillez le renseigner.
+            <div className="flex w-full flex-col">
+              <TextArea
+                name="message"
+                placeholder="Message"
+                errorText="Le champ message est obligatoire, veuillez le renseigner."
+              />
             </div>
-          )}
-        </div>
-        <div className="mt-4 flex w-full items-center justify-end">
-          <button
-            type="submit"
-            className="flex h-[44px] w-[130px] flex-row items-center justify-center rounded-[44px] bg-[#111111] bg-gradient-to-r from-[#2a1683] via-[#5c0099] to-[#ff0095] p-2 text-center text-[16px] font-semibold text-[#ffffff]"
-          >
-            Envoyer
-          </button>
-        </div>
-      </form>
+            {!isFormSubmitted && (
+              <Captcha
+                isValid={isCaptchaValidated}
+                isVisible={captchaVisibility}
+                captchaCallback={handleCaptchaCallback}
+              />
+            )}
+            {isCaptchaSubmitted && !isCaptchaValidated && (
+              <Info>
+                Vous pouvez me contacter par email ou sur Linkedin ci-dessous.
+              </Info>
+            )}
+            {isFormSubmitted && (
+              <Success>Votre message a bien été envoyé.</Success>
+            )}
+            <div className="w-full rounded-b-lg px-4 py-2 ">
+              <div className="flex w-full items-center ">
+                {(!isCaptchaSubmitted || isCaptchaValidated) && (
+                  <Button
+                    type="submit"
+                    text="Envoyer"
+                    className="justify-end"
+                  />
+                )}
+              </div>
+            </div>
+          </form>
+        </FormProvider>
+      </div>
     </div>
   );
-};
+}
