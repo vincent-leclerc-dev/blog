@@ -15,7 +15,7 @@ type ProjectsProps = {
 
 export const Projects = ({ data }: ProjectsProps): JSX.Element => (
   <Card id="projects" title="Projets">
-    <ul className="grid grid-cols-2 gap-4">
+    <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
       {data.map((project) => (
         <li
           key={project.name}

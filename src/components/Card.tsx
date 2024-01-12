@@ -7,7 +7,7 @@ export const Card = (props: {
 }) => (
   <div
     id={props.id}
-    className="my-4 flex w-1/2 flex-col items-center rounded-lg bg-[#333333] p-2"
+    className="m-4 flex w-full flex-col items-center rounded-lg bg-[#333333] p-2 md:w-1/2"
   >
     <h2 className="w-full rounded-t-lg p-2 text-center text-3xl font-semibold text-white">
       {props.title}
