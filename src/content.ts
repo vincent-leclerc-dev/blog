@@ -32,10 +32,27 @@ export const projects = [
     name: 'Portfolio',
     description:
       'Vitrine de mes projets, ainsi que quelques informations sur moi.',
+    link: 'https://www.vincentleclerc.blog',
+    status: 'pending',
   },
   {
     name: 'Presto Picto',
     description: 'Application de bureau pour les Orthophonistes',
+    link: '',
+    status: 'pending',
+  },
+  {
+    name: 'MediaCenter',
+    description:
+      'Projet domotique pour diffuser des films sur un vidéo projecteur.',
+    link: '',
+    status: 'pending',
+  },
+  {
+    name: 'RasPiBar',
+    description: 'Projet domotique pour faire des cocktails automatiques.',
+    link: 'https://github.com/vincent-leclerc-dev/connected-bar',
+    status: 'pending',
   },
 ];
 

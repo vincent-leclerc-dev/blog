@@ -1,6 +1,10 @@
+import { Card } from './Card';
+
 type Project = {
   name: string;
   description: string;
+  link: string;
+  status: string;
 };
 
 type ProjectsProps = {
@@ -10,22 +14,21 @@ type ProjectsProps = {
 };
 
 export const Projects = ({ data }: ProjectsProps): JSX.Element => (
-  <div
-    id="projects"
-    className="m-4 flex w-1/2 flex-col items-center rounded-lg bg-blue-500 p-2"
-  >
-    <h2 className="bg-blue-500 p-4 text-3xl font-semibold text-white">
-      Mes derniers projets
-    </h2>
-    <ul className="flex flex-wrap bg-gray-950">
+  <Card id="projects" title="Projets">
+    <ul className="grid grid-cols-2 gap-4">
       {data.map((project) => (
         <li
           key={project.name}
-          className="m-4 flex w-full bg-slate-400 px-4 py-2 text-xl text-white"
+          className="h-32 cursor-pointer rounded bg-[#444444] px-4 py-2 text-xl text-white hover:bg-[#555555]"
         >
-          {project.name}
+          <a href={project.link}>
+            <h3 className="mb-2 text-xl font-bold text-blue-400">
+              {project.name}
+            </h3>
+            <p className="text-sm">{project.description}</p>
+          </a>
         </li>
       ))}
     </ul>
-  </div>
+  </Card>
 );

@@ -1,5 +1,7 @@
 import { twMerge } from 'tailwind-merge';
 
+import { Card } from './Card';
+
 type Tag = {
   label: string;
   category: string;
@@ -29,14 +31,8 @@ const getCategoryAsColor = (category: string): CategoryAsColor => {
 };
 
 export const Tags = ({ data }: TagsProps = { data: [] }): JSX.Element => (
-  <div
-    id="skills"
-    className="m-2 flex w-1/2 flex-col items-center rounded-lg bg-blue-500 p-2"
-  >
-    <h2 className="bg-blue-500 p-4 text-3xl font-semibold text-white">
-      Mes compétences
-    </h2>
-    <ul className="flex flex-wrap bg-gray-950">
+  <Card id="skills" title="Mes compétences">
+    <ul className="flex flex-wrap rounded bg-[#444444]">
       {data.map((item) => (
         <li
           key={item.label}
@@ -49,5 +45,5 @@ export const Tags = ({ data }: TagsProps = { data: [] }): JSX.Element => (
         </li>
       ))}
     </ul>
-  </div>
+  </Card>
 );

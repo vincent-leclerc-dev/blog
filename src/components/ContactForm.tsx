@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
 import { db } from '../firebase/client';
+import { Card } from './Card';
 import {
   Button,
   Captcha,
@@ -65,67 +66,55 @@ export default function ContactForm() {
   }, [isFormSubmitted, reset]);
 
   return (
-    <div
-      id="contact"
-      className="m-2 flex w-full flex-col items-center rounded-lg bg-[#333333] p-2"
-    >
-      <h2 className="w-full rounded-t-lg p-2 text-center text-3xl font-semibold text-white">
-        Contact
-      </h2>
-      <div className="w-full p-2">
-        <FormProvider {...methods}>
-          <form onSubmit={handleSubmit} className="flex w-full flex-col">
-            <div className="flex w-full flex-col">
-              <TextField
-                name="name"
-                placeholder="Nom (optionnel)"
-                errorText="Le champ nom est obligatoire, veuillez le renseigner."
-                options={{ required: false }}
-              />
+    <Card id="contact" title="Envoyez-moi un message!">
+      <FormProvider {...methods}>
+        <form onSubmit={handleSubmit} className="flex w-full flex-col">
+          <div className="flex w-full flex-col">
+            <TextField
+              name="name"
+              placeholder="Nom (optionnel)"
+              errorText="Le champ nom est obligatoire, veuillez le renseigner."
+              options={{ required: false }}
+            />
+          </div>
+          <div className="flex w-full flex-col">
+            <EmailField
+              name="email"
+              placeholder="Email"
+              errorText="Veuillez respecter le format email."
+            />
+          </div>
+          <div className="flex w-full flex-col">
+            <TextArea
+              name="message"
+              placeholder="Message"
+              errorText="Le champ message est obligatoire, veuillez le renseigner."
+            />
+          </div>
+          {!isFormSubmitted && (
+            <Captcha
+              isValid={isCaptchaValidated}
+              isVisible={captchaVisibility}
+              captchaCallback={handleCaptchaCallback}
+            />
+          )}
+          {isCaptchaSubmitted && !isCaptchaValidated && (
+            <Info>
+              Vous pouvez me contacter par email ou sur Linkedin ci-dessous.
+            </Info>
+          )}
+          {isFormSubmitted && (
+            <Success>Votre message a bien été envoyé.</Success>
+          )}
+          <div className="w-full rounded-b-lg px-4 py-2 ">
+            <div className="flex w-full items-center ">
+              {(!isCaptchaSubmitted || isCaptchaValidated) && (
+                <Button type="submit" text="Envoyer" className="justify-end" />
+              )}
             </div>
-            <div className="flex w-full flex-col">
-              <EmailField
-                name="email"
-                placeholder="Email"
-                errorText="Veuillez respecter le format email."
-              />
-            </div>
-            <div className="flex w-full flex-col">
-              <TextArea
-                name="message"
-                placeholder="Message"
-                errorText="Le champ message est obligatoire, veuillez le renseigner."
-              />
-            </div>
-            {!isFormSubmitted && (
-              <Captcha
-                isValid={isCaptchaValidated}
-                isVisible={captchaVisibility}
-                captchaCallback={handleCaptchaCallback}
-              />
-            )}
-            {isCaptchaSubmitted && !isCaptchaValidated && (
-              <Info>
-                Vous pouvez me contacter par email ou sur Linkedin ci-dessous.
-              </Info>
-            )}
-            {isFormSubmitted && (
-              <Success>Votre message a bien été envoyé.</Success>
-            )}
-            <div className="w-full rounded-b-lg px-4 py-2 ">
-              <div className="flex w-full items-center ">
-                {(!isCaptchaSubmitted || isCaptchaValidated) && (
-                  <Button
-                    type="submit"
-                    text="Envoyer"
-                    className="justify-end"
-                  />
-                )}
-              </div>
-            </div>
-          </form>
-        </FormProvider>
-      </div>
-    </div>
+          </div>
+        </form>
+      </FormProvider>
+    </Card>
   );
 }
