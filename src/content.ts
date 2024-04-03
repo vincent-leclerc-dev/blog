@@ -38,7 +38,7 @@ export const projects = [
   {
     name: 'Presto Picto',
     description: 'Application de bureau pour les Orthophonistes',
-    link: '',
+    link: 'https://github.com/vincent-leclerc-dev/presto-picto#readme',
     status: 'pending',
   },
   {
